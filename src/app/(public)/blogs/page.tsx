@@ -1,5 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogCard from "@/components/modules/Blogs/BlogCard";
+import { Metadata } from "next";
+
+
+export const metadata:Metadata = {
+  title: "All Blogs | Next blog",
+  description: "All Blogs pages with blogs"
+}
+
+
 
 const AllBlogsPage = async() => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`, {
