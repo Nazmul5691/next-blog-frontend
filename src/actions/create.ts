@@ -14,6 +14,7 @@ export const create = async (data: FormData) =>{
         tags: blogInfo.tags.toString().split(",").map(tag => tag.trim())
     }
 
+  
     // console.log(modifiedData);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`, {
@@ -28,6 +29,6 @@ export const create = async (data: FormData) =>{
     if(result){
         redirect("/blogs")
     }
-    
+
     return result;
 }
