@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 type LoginFormValues = {
   email: string;
@@ -95,6 +96,7 @@ export default function LoginForm() {
             </div>
           </form>
         </Form>
+
         {/* Social Login Buttons */}
         <div className="flex flex-col gap-3 mt-4">
           <Button
@@ -116,7 +118,10 @@ export default function LoginForm() {
           <Button
             variant="outline"
             className="flex items-center justify-center gap-2"
-            onClick={() => handleSocialLogin("google")}
+            // onClick={() => handleSocialLogin("google")}
+            onClick={() => signIn("google", {
+              callbackUrl: "/dashboard"
+            })}
           >
             {/* Google */}
             <Image
